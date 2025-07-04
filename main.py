@@ -86,9 +86,12 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
         for (mid,) in mandoubs:
             try:
-                await context.bot.send_message(mid, f"📦 طلب جديد:
-{text}\n
-لو حابب تقدم عرض، ابعت السعر والوقت هنا.")
+await context.bot.send_message(mid, f"""📦 طلب جديد:
+{text}
+
+ابعت السعر + الوقت هنا كعرض.
+""")
+
                 context.application.chat_data[mid] = {"order_id": order_id, "user_id": user_id}
             except:
                 continue
